@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive MCP Demo - Model Context Protocol</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Model Context Protocol (MCP) Interactive Demo</h1>
+            <p class="subtitle">Learn how AI models connect to external tools and data sources</p>
+        </header>
+
+        <div class="controls">
+            <button id="stepBtn" class="btn btn-primary">Next Step</button>
+            <button id="autoPlayBtn" class="btn btn-secondary">Auto Play</button>
+            <button id="resetBtn" class="btn btn-reset">Reset</button>
+            <div class="speed-control">
+                <label for="speedSlider">Speed:</label>
+                <input type="range" id="speedSlider" min="500" max="3000" value="1500" step="100">
+                <span id="speedLabel">1.5s</span>
+            </div>
+        </div>
+
+        <div class="step-indicator">
+            <span class="step-text">Step <span id="currentStep">0</span> of <span id="totalSteps">10</span></span>
+        </div>
+
+        <div class="architecture">
+            <!-- Host -->
+            <div class="component host" id="host">
+                <div class="component-header">
+                    <h2>🖥️ Host Application</h2>
+                </div>
+                <div class="component-content">
+                    <p>IDE, AI Assistant, or Application</p>
+                    <div class="example">Example: VS Code, Claude Desktop</div>
+                </div>
+            </div>
+
+            <!-- Client -->
+            <div class="component client" id="client">
+                <div class="component-header">
+                    <h2>🤖 MCP Client</h2>
+                </div>
+                <div class="component-content">
+                    <p>Manages connections and protocol</p>
+                    <div class="features">
+                        <span class="feature">Discovery</span>
+                        <span class="feature">Routing</span>
+                        <span class="feature">Security</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Server -->
+            <div class="component server" id="server">
+                <div class="component-header">
+                    <h2>⚙️ MCP Server</h2>
+                </div>
+                <div class="component-content">
+                    <p>Provides tools and resources</p>
+                    <div class="features">
+                        <span class="feature">Tools</span>
+                        <span class="feature">Resources</span>
+                        <span class="feature">Prompts</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- External Context -->
+            <div class="component external" id="external">
+                <div class="component-header">
+                    <h2>🌐 External Context</h2>
+                </div>
+                <div class="component-content">
+                    <p>Data sources and services</p>
+                    <div class="example">APIs, Databases, File Systems</div>
+                </div>
+            </div>
+
+            <!-- Connection Lines -->
+            <svg class="connections" id="connections">
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#4CAF50" />
+                    </marker>
+                </defs>
+                <!-- Host to Client -->
+                <line id="line1" class="connection-line" x1="50%" y1="15%" x2="50%" y2="30%" marker-end="url(#arrowhead)"/>
+                <!-- Client to Server -->
+                <line id="line2" class="connection-line" x1="50%" y1="50%" x2="50%" y2="65%" marker-end="url(#arrowhead)"/>
+                <!-- Server to External -->
+                <line id="line3" class="connection-line" x1="50%" y1="85%" x2="50%" y2="100%" marker-end="url(#arrowhead)"/>
+            </svg>
+
+            <!-- Message Bubbles -->
+            <div class="message" id="message1">User request</div>
+            <div class="message" id="message2">Protocol message</div>
+            <div class="message" id="message3">Tool execution</div>
+            <div class="message" id="message4">Data response</div>
+        </div>
+
+        <div class="explanation-panel">
+            <h3>📝 What's Happening:</h3>
+            <p id="explanation">Click "Next Step" or "Auto Play" to see how MCP works!</p>
+        </div>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>🎯 What is MCP?</h3>
+                <p>The Model Context Protocol (MCP) is an open standard that enables AI models to securely connect with external data sources and tools.</p>
+            </div>
+            <div class="info-card">
+                <h3>🔧 Key Components</h3>
+                <ul>
+                    <li><strong>Host:</strong> The application hosting the AI</li>
+                    <li><strong>Client:</strong> Protocol implementation</li>
+                    <li><strong>Server:</strong> Exposes tools & resources</li>
+                    <li><strong>External:</strong> Actual data sources</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>✨ Benefits</h3>
+                <ul>
+                    <li>Standardized communication</li>
+                    <li>Secure data access</li>
+                    <li>Extensible architecture</li>
+                    <li>Reusable components</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>Created for educational purposes | Learn more at <a href="https://modelcontextprotocol.io" target="_blank">modelcontextprotocol.io</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
