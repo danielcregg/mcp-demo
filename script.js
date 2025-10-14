@@ -1,67 +1,67 @@
 // Animation steps for the MCP demo
 const steps = [
     {
-        description: "Welcome! The Model Context Protocol connects AI applications to external data sources. Let's see how it works step by step.",
+        description: "Welcome to the walkthrough. The Model Context Protocol (MCP) connects AI experiences to tools and data through a consistent contract.",
         active: [],
         lines: [],
         messages: []
     },
     {
-        description: "1️⃣ User Request: A user asks a question or gives a command in the Host Application (like VS Code or Claude Desktop).",
+        description: "Step 1 — A learner initiates a request inside the host application (for example, VS Code or Claude Desktop).",
         active: ['host'],
         lines: [],
         messages: []
     },
     {
-        description: "2️⃣ The Host Application sends the request to the MCP Client, which manages the protocol communication.",
+        description: "Step 2 — The host forwards the intent to the MCP client, handing off protocol responsibilities.",
         active: ['host', 'client'],
         lines: ['line1'],
         messages: ['message1']
     },
     {
-        description: "3️⃣ The MCP Client processes the request and determines which server and tools are needed to fulfill it.",
+        description: "Step 3 — The client inspects available MCP servers and chooses the best candidate to answer the request.",
         active: ['client'],
         lines: [],
         messages: []
     },
     {
-        description: "4️⃣ The Client sends a standardized protocol message to the appropriate MCP Server.",
+        description: "Step 4 — A protocol-compliant message travels from the client to the selected MCP server.",
         active: ['client', 'server'],
         lines: ['line2'],
         messages: ['message2']
     },
     {
-        description: "5️⃣ The MCP Server receives the request and identifies which tools or resources to use. It exposes capabilities like file access, API calls, or database queries.",
+        description: "Step 5 — The MCP server validates the request and selects the right tool, prompt, or resource to invoke.",
         active: ['server'],
         lines: [],
         messages: []
     },
     {
-        description: "6️⃣ The Server executes the tool and connects to the External Context (databases, APIs, file systems, etc.).",
+        description: "Step 6 — The chosen tool executes and reaches into external context such as APIs, databases, or file systems.",
         active: ['server', 'external'],
         lines: ['line3'],
         messages: ['message3']
     },
     {
-        description: "7️⃣ The External Context returns the requested data back to the MCP Server.",
+        description: "Step 7 — External systems return the requested data or response payload back to the MCP server.",
         active: ['external'],
         lines: [],
         messages: ['message4']
     },
     {
-        description: "8️⃣ The Server formats the response and sends it back through the protocol to the Client.",
+        description: "Step 8 — The server formats the result, applies policy, and packages a response for the client.",
         active: ['server', 'client'],
         lines: ['line2'],
         messages: []
     },
     {
-        description: "9️⃣ The Client receives the response and delivers it to the Host Application.",
+        description: "Step 9 — The client relays the response to the host, logging the interaction for observability.",
         active: ['client', 'host'],
         lines: ['line1'],
         messages: []
     },
     {
-        description: "🎉 Complete! The Host Application presents the result to the user. This standardized protocol makes it easy to connect any AI application to any data source securely!",
+        description: "Step 10 — The host presents a polished answer to the user. MCP makes this journey consistent, secure, and extensible across AI surfaces.",
         active: ['host', 'client', 'server', 'external'],
         lines: ['line1', 'line2', 'line3'],
         messages: []
@@ -81,6 +81,7 @@ const speedLabel = document.getElementById('speedLabel');
 const currentStepEl = document.getElementById('currentStep');
 const totalStepsEl = document.getElementById('totalSteps');
 const explanationEl = document.getElementById('explanation');
+const timelineItems = document.querySelectorAll('[data-step-index]');
 
 // Initialize
 totalStepsEl.textContent = steps.length - 1;
@@ -117,6 +118,15 @@ function updateStep() {
     });
     document.querySelectorAll('.message').forEach(m => {
         m.classList.remove('show', 'move-down');
+    });
+
+    timelineItems.forEach(item => {
+        const itemIndex = Number(item.dataset.stepIndex);
+        if (itemIndex === currentStep) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
     });
     
     // Apply new active states with animation
@@ -156,8 +166,8 @@ function toggleAutoPlay() {
 }
 
 function startAutoPlay() {
-    autoPlayBtn.textContent = '⏸ Pause';
-    autoPlayBtn.style.background = 'linear-gradient(135deg, #f5576c 0%, #f093fb 100%)';
+    autoPlayBtn.textContent = 'Pause';
+    autoPlayBtn.style.background = 'linear-gradient(120deg, #b91c1c, #f97316)';
     
     autoPlayInterval = setInterval(() => {
         if (currentStep < steps.length - 1) {
@@ -172,7 +182,7 @@ function stopAutoPlay() {
     clearInterval(autoPlayInterval);
     autoPlayInterval = null;
     autoPlayBtn.textContent = 'Auto Play';
-    autoPlayBtn.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
+    autoPlayBtn.style.background = 'linear-gradient(120deg, #0369a1, #0ea5e9)';
 }
 
 function reset() {
@@ -218,18 +228,19 @@ keyboardHints.style.cssText = `
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(15, 23, 42, 0.92);
     color: white;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 14px 18px;
+    border-radius: 16px;
     font-size: 0.9rem;
     z-index: 1000;
+    box-shadow: 0 18px 32px rgba(15, 23, 42, 0.25);
 `;
 keyboardHints.innerHTML = `
-    <strong>⌨️ Keyboard Shortcuts:</strong><br>
-    → or Space: Next Step<br>
-    ←: Previous Step<br>
-    P: Auto Play<br>
-    R: Reset
+    <strong>Keyboard Shortcuts</strong><br>
+    Space or → : Next step<br>
+    ← : Previous step<br>
+    P : Play / pause<br>
+    R : Reset
 `;
 document.body.appendChild(keyboardHints);

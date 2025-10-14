@@ -69,22 +69,27 @@ python -m http.server 8000
 ## 🎯 Interactive Features
 
 ### Navigation Controls
-- **Next Step**: Advance through the demo one step at a time
-- **Auto Play**: Automatically progress through all steps
-- **Reset**: Start over from the beginning
-- **Speed Control**: Adjust the animation speed (0.5s - 3.0s)
+- **Next Step**: Advance one interaction at a time with deliberate pacing
+- **Auto Play**: Present the entire sequence hands-free
+- **Reset**: Return to the welcome state to repeat the walkthrough
+- **Speed Control**: Adjust the animation cadence (0.5s – 3.0s)
 
 ### Keyboard Shortcuts
 - `→` or `Space`: Next step
 - `←`: Previous step
-- `P`: Toggle auto-play
+- `P`: Play or pause auto mode
 - `R`: Reset to beginning
 
-### Visual Learning
-- 🎨 **Color-coded components** for easy identification
-- 📊 **Animated data flow** showing message passing
-- 💡 **Step-by-step explanations** of each action
-- 🔄 **Interactive controls** for self-paced learning
+### Guided Learning Aids
+- **Flow checklist** in the sidebar mirrors every step and highlights the current state
+- **Learning objectives** summarize the lesson outcomes before students begin
+- **Discussion prompts** help facilitators extend the conversation beyond the animation
+
+### Visual Storytelling
+- 🎨 **Color-coded components** clarify each MCP responsibility
+- 📊 **Animated connectors** show message routing through the protocol
+- � **Dynamic narration** explains the rationale behind each step
+- ♻️ **Responsive layout** adapts for classrooms, projectors, and mobile devices
 
 ## 📚 Learning Path
 

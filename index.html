@@ -9,33 +9,74 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎓 Model Context Protocol (MCP) Interactive Demo</h1>
-            <p class="subtitle">Learn how AI models connect to external tools and data sources</p>
+            <h1>Model Context Protocol Interactive Walkthrough</h1>
+            <p class="subtitle">Follow a guided journey to see how hosts, clients, servers, and external context collaborate through MCP.</p>
+            <div class="header-highlights" aria-label="Experience overview">
+                <span class="highlight-pill">10-step animated flow</span>
+                <span class="highlight-pill">Auto-play or manual pacing</span>
+                <span class="highlight-pill">Keyboard friendly</span>
+            </div>
         </header>
 
-        <div class="controls">
+        <section class="overview" aria-labelledby="overview-title">
+            <div class="overview-card">
+                <h2 id="overview-title">Learning Objectives</h2>
+                <ul>
+                    <li>Understand the four core MCP roles and their responsibilities.</li>
+                    <li>Observe the sequence of messages exchanged during a request.</li>
+                    <li>Connect each visual step to real-world AI assistant behavior.</li>
+                </ul>
+            </div>
+            <div class="overview-card">
+                <h2>How to Use This Demo</h2>
+                <p>Advance at your own pace with <strong>Next Step</strong>, or let the flow play automatically. Hover over any component to revisit its purpose.</p>
+                <div class="overview-grid">
+                    <div>
+                        <h3>Primary Controls</h3>
+                        <ul>
+                            <li><strong>Next Step:</strong> Advance one action at a time.</li>
+                            <li><strong>Auto Play:</strong> Watch the scenario end-to-end.</li>
+                            <li><strong>Reset:</strong> Return to the welcome view.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Keyboard Shortcuts</h3>
+                        <ul>
+                            <li><code>Space</code> or <code>→</code> Next step</li>
+                            <li><code>←</code> Previous step</li>
+                            <li><code>P</code> Play / pause</li>
+                            <li><code>R</code> Reset</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="controls" aria-label="Playback controls">
             <button id="stepBtn" class="btn btn-primary">Next Step</button>
             <button id="autoPlayBtn" class="btn btn-secondary">Auto Play</button>
             <button id="resetBtn" class="btn btn-reset">Reset</button>
             <div class="speed-control">
-                <label for="speedSlider">Speed:</label>
-                <input type="range" id="speedSlider" min="500" max="3000" value="1500" step="100">
-                <span id="speedLabel">1.5s</span>
+                <label for="speedSlider">Speed</label>
+                <input type="range" id="speedSlider" min="500" max="3000" value="1500" step="100" aria-valuemin="500" aria-valuemax="3000" aria-valuenow="1500">
+                <span id="speedLabel" aria-live="polite">1.5s</span>
             </div>
         </div>
 
-        <div class="step-indicator">
-            <span class="step-text">Step <span id="currentStep">0</span> of <span id="totalSteps">10</span></span>
-        </div>
+        <main class="main-layout">
+            <section class="diagram-panel" aria-label="Animated MCP architecture">
+                <div class="step-indicator" role="status" aria-live="polite">
+                    <span class="step-text">Step <span id="currentStep">0</span> of <span id="totalSteps">10</span></span>
+                </div>
 
-        <div class="architecture">
+                <div class="architecture">
             <!-- Host -->
             <div class="component host" id="host">
                 <div class="component-header">
-                    <h2>🖥️ Host Application</h2>
+                    <h2>Host Application</h2>
                 </div>
                 <div class="component-content">
-                    <p>IDE, AI Assistant, or Application</p>
+                    <p>Where the user interacts with the AI assistant.</p>
                     <div class="example">Example: VS Code, Claude Desktop</div>
                 </div>
             </div>
@@ -43,10 +84,10 @@
             <!-- Client -->
             <div class="component client" id="client">
                 <div class="component-header">
-                    <h2>🤖 MCP Client</h2>
+                    <h2>MCP Client</h2>
                 </div>
                 <div class="component-content">
-                    <p>Manages connections and protocol</p>
+                    <p>Implements the protocol and orchestrates requests.</p>
                     <div class="features">
                         <span class="feature">Discovery</span>
                         <span class="feature">Routing</span>
@@ -58,10 +99,10 @@
             <!-- Server -->
             <div class="component server" id="server">
                 <div class="component-header">
-                    <h2>⚙️ MCP Server</h2>
+                    <h2>MCP Server</h2>
                 </div>
                 <div class="component-content">
-                    <p>Provides tools and resources</p>
+                    <p>Exposes tools, resources, and prompts the assistant can call.</p>
                     <div class="features">
                         <span class="feature">Tools</span>
                         <span class="feature">Resources</span>
@@ -73,11 +114,11 @@
             <!-- External Context -->
             <div class="component external" id="external">
                 <div class="component-header">
-                    <h2>🌐 External Context</h2>
+                    <h2>External Context</h2>
                 </div>
                 <div class="component-content">
-                    <p>Data sources and services</p>
-                    <div class="example">APIs, Databases, File Systems</div>
+                    <p>Where the real data and side effects live.</p>
+                    <div class="example">Examples: APIs, databases, file systems</div>
                 </div>
             </div>
 
@@ -104,37 +145,52 @@
         </div>
 
         <div class="explanation-panel">
-            <h3>📝 What's Happening:</h3>
-            <p id="explanation">Click "Next Step" or "Auto Play" to see how MCP works!</p>
+            <h3>What Happens During This Step</h3>
+            <p id="explanation">Click "Next Step" or "Auto Play" to see how the Model Context Protocol routes a user request.</p>
         </div>
+            </section>
 
-        <div class="info-cards">
-            <div class="info-card">
-                <h3>🎯 What is MCP?</h3>
-                <p>The Model Context Protocol (MCP) is an open standard that enables AI models to securely connect with external data sources and tools.</p>
-            </div>
-            <div class="info-card">
-                <h3>🔧 Key Components</h3>
-                <ul>
-                    <li><strong>Host:</strong> The application hosting the AI</li>
-                    <li><strong>Client:</strong> Protocol implementation</li>
-                    <li><strong>Server:</strong> Exposes tools & resources</li>
-                    <li><strong>External:</strong> Actual data sources</li>
-                </ul>
-            </div>
-            <div class="info-card">
-                <h3>✨ Benefits</h3>
-                <ul>
-                    <li>Standardized communication</li>
-                    <li>Secure data access</li>
-                    <li>Extensible architecture</li>
-                    <li>Reusable components</li>
-                </ul>
-            </div>
-        </div>
+            <aside class="sidebar" aria-label="Reference information">
+                <div class="sidebar-card step-reference">
+                    <h3>MCP Flow Checklist</h3>
+                    <ol>
+                        <li data-step-index="0">Orientation: the four MCP roles</li>
+                        <li data-step-index="1">User initiates a request in the host</li>
+                        <li data-step-index="2">Host forwards the intent to the MCP client</li>
+                        <li data-step-index="3">Client evaluates available servers and tools</li>
+                        <li data-step-index="4">Client issues a protocol message to the server</li>
+                        <li data-step-index="5">Server selects the right capability</li>
+                        <li data-step-index="6">Server reaches out to external context</li>
+                        <li data-step-index="7">External systems return data or a result</li>
+                        <li data-step-index="8">Server wraps the response for the client</li>
+                        <li data-step-index="9">Client delivers the answer to the host</li>
+                        <li data-step-index="10">User sees the final output</li>
+                    </ol>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Key Takeaways</h3>
+                    <ul>
+                        <li>MCP separates responsibilities, keeping hosts lightweight.</li>
+                        <li>Clients broker secure, auditable communication between all parties.</li>
+                        <li>Servers provide reusable building blocks that any MCP-compatible host can adopt.</li>
+                        <li>External context stays isolated while remaining accessible through policy-aware tools.</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Suggested Discussion Prompts</h3>
+                    <ul>
+                        <li>Where should authentication and authorization live in an MCP deployment?</li>
+                        <li>How do teams version and test MCP servers before production?</li>
+                        <li>Which existing tools could you expose via MCP in your environment?</li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
 
         <footer>
-            <p>Created for educational purposes | Learn more at <a href="https://modelcontextprotocol.io" target="_blank">modelcontextprotocol.io</a></p>
+            <p>Learn more at <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">modelcontextprotocol.io</a> · Maintained for classroom demonstrations</p>
         </footer>
     </div>
 
