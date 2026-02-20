@@ -204,6 +204,10 @@ function updateSpeed() {
 
 // Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
+    // Ignore keyboard shortcuts when focus is on an interactive element
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        return;
+    }
     if (e.key === 'ArrowRight' || e.key === ' ') {
         e.preventDefault();
         if (!stepBtn.disabled) {
