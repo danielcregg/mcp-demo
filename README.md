@@ -1,174 +1,61 @@
-# 🎓 Interactive MCP Demo - Model Context Protocol
+# Interactive MCP Demo
 
-An interactive, visual demonstration tool for learning the Model Context Protocol (MCP). Perfect for students and developers new to MCP!
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)
 
-🌐 **[View Live Demo](https://danielcregg.github.io/mcp-demo/)**
+An interactive, visual demonstration tool for learning the Model Context Protocol (MCP). Designed for students, educators, and developers who want to understand how AI applications connect to external tools and data sources through a standardized protocol.
 
-## 📖 What is MCP?
+**[View Live Demo](https://danielcregg.github.io/mcp-demo/)**
 
-The **Model Context Protocol (MCP)** is an open standard that enables AI applications to securely connect with external data sources and tools. Think of it as a universal translator that allows AI models to access databases, APIs, file systems, and other resources in a standardized way.
+## Overview
 
-### Why MCP Matters
+The Model Context Protocol (MCP) is an open standard that enables AI applications to securely connect with external data sources and tools. This project provides a step-by-step animated walkthrough of the MCP architecture, illustrating how hosts, clients, servers, and external context collaborate through the protocol. The demo guides users through a complete 10-step MCP interaction sequence with color-coded components, animated connectors, and dynamic narration.
 
-- 🔌 **Standardized Integration**: One protocol for all AI-to-data connections
-- 🔒 **Secure**: Built-in security and permission management
-- 🎯 **Extensible**: Easy to add new tools and data sources
-- 🔄 **Reusable**: MCP servers can be shared across different AI applications
+## Features
 
-## 🏗️ Architecture Overview
+- **10-step animated flow** walking through a complete MCP request-response cycle
+- **Auto-play and manual pacing** with adjustable animation speed (0.5s to 3.0s)
+- **Keyboard shortcuts** for hands-free navigation (Arrow keys, Space, P, R)
+- **Sidebar flow checklist** that highlights the current step in real time
+- **Learning objectives and discussion prompts** for classroom facilitation
+- **Responsive layout** that adapts to projectors, desktops, and mobile devices
+- **Color-coded architecture diagram** with animated SVG connection lines
 
-MCP consists of four key components:
+## Prerequisites
 
-### 1. 🖥️ Host Application
-The user-facing application that provides the AI interface.
-- **Examples**: VS Code, Claude Desktop, custom AI apps
-- **Role**: Presents the UI and manages user interactions
+- A modern web browser (Chrome, Firefox, Safari, or Edge)
+- No build tools, package managers, or server-side dependencies required
 
-### 2. 🤖 MCP Client
-The protocol implementation that manages communication.
-- **Functions**: 
-  - Discovers available MCP servers
-  - Routes requests to appropriate servers
-  - Manages security and permissions
-  - Handles protocol-level communication
+## Getting Started
 
-### 3. ⚙️ MCP Server
-Exposes tools, resources, and prompts to the client.
-- **Capabilities**:
-  - **Tools**: Executable functions (e.g., file operations, API calls)
-  - **Resources**: Data sources (e.g., files, database records)
-  - **Prompts**: Pre-configured prompts for common tasks
-- **Examples**: File system server, GitHub server, database server
+### Installation
 
-### 4. 🌐 External Context
-The actual data sources and services.
-- **Examples**: 
-  - File systems
-  - Databases (PostgreSQL, MongoDB)
-  - APIs (REST, GraphQL)
-  - Cloud services
-
-## 🎮 How to Use the Demo
-
-### Online (GitHub Pages)
-Visit **[https://danielcregg.github.io/mcp-demo/](https://danielcregg.github.io/mcp-demo/)** to use the interactive demo.
-
-### Local Installation
 ```bash
-# Clone the repository
 git clone https://github.com/danielcregg/mcp-demo.git
 cd mcp-demo
-
-# Open in browser
-# Simply open index.html in your web browser
-# Or use a local server:
-python -m http.server 8000
-# Then visit http://localhost:8000
 ```
 
-## 🎯 Interactive Features
+### Usage
 
-### Navigation Controls
-- **Next Step**: Advance one interaction at a time with deliberate pacing
-- **Auto Play**: Present the entire sequence hands-free
-- **Reset**: Return to the welcome state to repeat the walkthrough
-- **Speed Control**: Adjust the animation cadence (0.5s – 3.0s)
+Open `index.html` directly in your browser, or serve it locally:
 
-### Keyboard Shortcuts
-- `→` or `Space`: Next step
-- `←`: Previous step
-- `P`: Play or pause auto mode
-- `R`: Reset to beginning
+```bash
+python -m http.server 8000
+```
 
-### Guided Learning Aids
-- **Flow checklist** in the sidebar mirrors every step and highlights the current state
-- **Learning objectives** summarize the lesson outcomes before students begin
-- **Discussion prompts** help facilitators extend the conversation beyond the animation
+Then visit `http://localhost:8000` in your browser. Use the **Next Step** button to advance through the walkthrough, or click **Auto Play** to watch the entire sequence automatically.
 
-### Visual Storytelling
-- 🎨 **Color-coded components** clarify each MCP responsibility
-- 📊 **Animated connectors** show message routing through the protocol
-- � **Dynamic narration** explains the rationale behind each step
-- ♻️ **Responsive layout** adapts for classrooms, projectors, and mobile devices
+## Tech Stack
 
-## 📚 Learning Path
+| Technology | Purpose |
+|---|---|
+| HTML5 | Structure and semantic markup |
+| CSS3 | Styling, animations, and responsive design |
+| JavaScript (ES6+) | Interactive functionality and state management |
+| SVG | Animated connection lines between components |
 
-The demo walks through a complete MCP interaction:
+## License
 
-1. **User Request** - User asks a question in the host application
-2. **Client Processing** - MCP client receives and processes the request
-3. **Server Discovery** - Client determines which server to use
-4. **Protocol Communication** - Standardized message sent to server
-5. **Tool Selection** - Server identifies the appropriate tool
-6. **External Access** - Server accesses external data sources
-7. **Data Retrieval** - External context returns requested data
-8. **Response Formatting** - Server formats the response
-9. **Client Delivery** - Response sent back through the client
-10. **User Display** - Host application presents result to user
-
-## 🛠️ Technical Implementation
-
-### Technologies Used
-- **HTML5**: Structure and semantic markup
-- **CSS3**: Styling, animations, and responsive design
-- **JavaScript (ES6+)**: Interactive functionality and state management
-- **SVG**: Animated connection lines
-
-### Browser Support
-- ✅ Chrome/Edge (recommended)
-- ✅ Firefox
-- ✅ Safari
-- ✅ Mobile browsers
-
-## 🎓 Educational Use
-
-This demo is ideal for:
-- 👨‍🎓 **Students** learning about AI architectures
-- 👩‍💻 **Developers** implementing MCP in their applications
-- 👨‍🏫 **Educators** teaching distributed systems and AI
-- 🏢 **Teams** understanding AI integration patterns
-
-## 🔗 Additional Resources
-
-- [Official MCP Documentation](https://modelcontextprotocol.io)
-- [MCP Specification](https://spec.modelcontextprotocol.io)
-- [GitHub MCP Organization](https://github.com/modelcontextprotocol)
-- [Community Examples](https://github.com/modelcontextprotocol/servers)
-
-## 🤝 Contributing
-
-Contributions are welcome! To improve this demo:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/improvement`)
-3. Make your changes
-4. Commit with clear messages (`git commit -m 'Add: new animation'`)
-5. Push to your branch (`git push origin feature/improvement`)
-6. Open a Pull Request
-
-### Improvement Ideas
-- 🌍 Add internationalization (multiple languages)
-- 🎨 Additional themes and color schemes
-- 📱 Enhanced mobile experience
-- 🎓 More detailed examples and use cases
-- 🔊 Audio narration option
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
-## 👤 Author
-
-Created by Daniel Cregg for educational purposes.
-
-## 🙏 Acknowledgments
-
-- Model Context Protocol team at Anthropic
-- The open source community
-- Students and educators providing feedback
-
----
-
-**Star ⭐ this repository if you find it helpful!**
-
-For questions or suggestions, please [open an issue](https://github.com/danielcregg/mcp-demo/issues).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
